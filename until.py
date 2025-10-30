@@ -1,3 +1,7 @@
+import requests
+from convertMarkdown import MarkItDownManager
+md = MarkItDownManager()
+BASE_URL = "http://localhost:8080/public/"
 def fetch_and_extract_file(filename):
     url = BASE_URL + filename
     try:
