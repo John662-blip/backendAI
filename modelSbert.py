@@ -1,5 +1,5 @@
 from sentence_transformers import SentenceTransformer
-
+import requests
 class SBertVectorizer:
     def __init__(self, 
                  model_name="sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
@@ -22,13 +22,3 @@ class SBertVectorizer:
         if as_list:
             return vec.tolist()
         return vec
-vec_model = SBertVectorizer(device="cuda")  # hoặc device="cpu"
-
-# Convert 1 câu
-vector = vec_model.to_vector("Xin chào, tôi là AI")
-print(vector)
-print("Kích thước vector:", len(vector))
-
-# Convert nhiều câu
-vectors = vec_model.to_vector(["Tôi thích học AI", "Hôm nay trời đẹp"])
-print(vectors.shape)
